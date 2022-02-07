@@ -12,6 +12,7 @@
     "sass": "^1.26.11"
   },
   "dependencies": {
-    "gsap": "^3.5.1"
+    "gsap": "^3.5.1",
+    "simplebar": "^5.3.6"
   }
 }

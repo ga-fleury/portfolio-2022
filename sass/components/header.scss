@@ -3,6 +3,7 @@ header {
   top: 60px;
   left: 60px;
   right: 60px;
+  z-index: 30;
   .header-inner {
     display: flex;
     align-items: center;

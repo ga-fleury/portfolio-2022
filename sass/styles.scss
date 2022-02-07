@@ -1,6 +1,7 @@
 @import "./components/header.scss";
 @import "./components/cursor.scss";
 @import "./components/hero.scss";
+@import "./components/footer.scss";
 
 *,
 *::after,
@@ -10,6 +11,8 @@
 
 body {
   margin: 0;
+  position: relative;
+  z-index: -1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Avenir", "Poppins", -apple-system, BlinkMacSystemFont,
@@ -26,6 +29,7 @@ body {
 
 .chat {
   position: fixed;
+  z-index: 11;
   bottom: 48px;
   right: 48px;
   height: 80px;

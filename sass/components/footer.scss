@@ -1,0 +1,130 @@
+footer {
+      /* place on the bottom */
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.outro
+{    &-wrap {
+    height: 40vh;
+    width: 100%;
+    background-color: #000;
+    @media (min-width: 360px) {
+        padding: 0 30px;
+      }
+      @media (min-width: 768px) {
+        padding: 0 100px;
+      }
+      @media (min-width: 1024px) {
+        padding: 0 120px;
+      }
+      @media (min-width: 1200px) {
+        padding: 0 150px;
+      }
+      @media (min-width: 1350px) {
+        padding: 0 180px;
+      }
+      @media (min-width: 1600px) {
+        padding: 0 220px;
+      }
+      @media (min-width: 1800px) {
+        padding: 0 270px;
+      }
+}
+    &-body {
+        color: #fff;
+    }
+    &-header {
+        line-height: 5.5em;;
+    }
+    &-body a {
+        color: #fff !important;
+    }
+    &-body span {
+        color: #fff !important;
+    }
+    &-mail {
+        color: #fff;
+    }
+    &-address {
+        color: #fff;
+    }
+    &-link {
+        color: #fff !important;
+    }
+
+    &-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        justify-content: end;
+        align-content: end;
+        align-items: end;
+        height: 40vh;
+    }
+    &-address {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        align-items: flex-start;
+        height: 100%;
+
+        & address{
+            margin-left: 30px;
+            & p{
+            margin: 0;
+        }}
+    }
+    &-grid-address {
+    }
+    &-social {
+        display: flex;
+        &-row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        &-item{
+            padding: 30px;
+        }
+    }
+}
+
+a, a:link, a:visited, a:focus, a:hover, a:active{
+    color:#fff;
+    text-decoration:none; 
+  }
+
+footer h2 {
+    font-size: 5em;
+    font-weight: normal;
+    margin-bottom: 0.01em;
+
+    & a {
+        font-weight: 200;
+    }
+}
+
+.sliding-middle-out {
+    display: inline-block;
+    position: relative;
+    &:hover {
+        cursor: pointer;
+    }
+    &:after {
+      content: '';
+      display: block;
+      margin: auto;
+      height: 2px;
+      width: 100%;
+      background: white;
+      transition: width .5s ease, background-color .5s ease;
+    }
+    &:hover:after {
+      width: 0;
+      background: white;
+    }
+  }
