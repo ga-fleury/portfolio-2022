@@ -1,3 +1,65 @@
+/*** The new CSS Reset - version 1.4.5 (last updated 13.1.2022) ***/
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+ */
+*:where(:not(iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a {
+  cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+  list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  max-width: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+  display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly. */
+:where([contenteditable]) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+  -webkit-user-drag: element;
+}
+
 header {
   position: absolute;
   top: 60px;
@@ -32,12 +94,13 @@ header .header-inner .header-inner-col .header-inner-nav .header-inner-nav-menu 
   align-items: center;
 }
 header .header-inner .header-inner-col .header-inner-nav .header-inner-nav-menu .header-inner-nav-link {
-  margin-right: 20px;
+  margin-right: 50px;
 }
 header .header-inner .header-inner-col .header-inner-nav .header-inner-nav-menu .header-inner-nav-menu-hamburger {
   width: 24px;
-  position: relative;
-  top: 1px;
+  position: fixed;
+  top: 65px;
+  right: 60px;
 }
 header .header-inner .header-inner-col .header-inner-nav .header-inner-nav-menu .header-inner-nav-menu-hamburger span {
   border: 1px solid black;
@@ -97,9 +160,23 @@ header .header-inner .header-inner-col .header-inner-nav .header-inner-nav-menu 
   flex-direction: column;
 }
 
+.service-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
 .hero {
   background: #fff;
   position: relative;
+}
+.hero-service-callout {
+  font-size: 1.2em;
+}
+.hero-service-title {
+  font-size: 6em;
+  font-weight: 400;
+  line-height: 1em;
+  margin-top: 0.3em;
 }
 @media (min-width: 360px) {
   .hero .container {
@@ -212,16 +289,20 @@ header .header-inner .header-inner-col .header-inner-nav .header-inner-nav-menu 
 }
 
 footer {
-  /* place on the bottom */
   position: sticky;
   bottom: 0;
-  left: 0;
+  height: 50vh;
   width: 100%;
   z-index: -1;
 }
+@media (min-width: 1600px) {
+  footer {
+    height: 30vh;
+  }
+}
 
 .outro-wrap {
-  height: 40vh;
+  height: 100%;
   width: 100%;
   background-color: #000;
 }
@@ -282,13 +363,12 @@ footer {
   color: #fff !important;
 }
 .outro-content {
-  display: grid;
+  display: flex;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  justify-content: end;
-  align-content: end;
-  align-items: end;
-  height: 40vh;
+  justify-content: start;
+  align-items: center;
+  height: 100%;
 }
 .outro-address {
   display: flex;
@@ -303,6 +383,10 @@ footer {
 }
 .outro-address address p {
   margin: 0;
+}
+.outro-grid-address {
+  margin-left: 20px;
+  margin-top: 40px;
 }
 .outro-social {
   display: flex;
@@ -324,6 +408,12 @@ footer h2 {
   font-size: 5em;
   font-weight: normal;
   margin-bottom: 0.01em;
+}
+@media (min-width: 1350px) {
+  footer h2 {
+    font-size: 3.5em;
+    line-height: 1em;
+  }
 }
 footer h2 a {
   font-weight: 200;
@@ -350,13 +440,280 @@ footer h2 a {
   background: white;
 }
 
+.fixed {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.screenshot {
+  background-color: #fff;
+}
+.screenshot-container {
+  overflow: hidden;
+}
+@media (min-width: 360px) {
+  .screenshot-container {
+    padding: 0 30px;
+  }
+}
+@media (min-width: 768px) {
+  .screenshot-container {
+    padding: 0 100px;
+  }
+}
+@media (min-width: 1024px) {
+  .screenshot-container {
+    padding: 0 120px;
+  }
+}
+@media (min-width: 1200px) {
+  .screenshot-container {
+    padding: 0 150px;
+  }
+}
+@media (min-width: 1350px) {
+  .screenshot-container {
+    padding: 0 100px;
+  }
+}
+@media (min-width: 1600px) {
+  .screenshot-container {
+    padding: 0 140px;
+  }
+}
+@media (min-width: 1800px) {
+  .screenshot-container {
+    padding: 0 180px;
+  }
+}
+
+.service {
+  background: #fff;
+  position: relative;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+}
+.service-callout {
+  font-size: 1.2em;
+}
+.service-title {
+  font-size: 6em;
+  font-weight: 400;
+  line-height: 1em;
+  margin-top: 0.3em;
+}
+@media (min-width: 360px) {
+  .service-container {
+    padding: 0 30px;
+  }
+}
+@media (min-width: 768px) {
+  .service-container {
+    padding: 0 100px;
+  }
+}
+@media (min-width: 1024px) {
+  .service-container {
+    padding: 0 120px;
+  }
+}
+@media (min-width: 1200px) {
+  .service-container {
+    padding: 0 150px;
+  }
+}
+@media (min-width: 1350px) {
+  .service-container {
+    padding: 0 180px;
+  }
+}
+@media (min-width: 1600px) {
+  .service-container {
+    padding: 0 220px;
+  }
+}
+@media (min-width: 1800px) {
+  .service-container {
+    padding: 0 270px;
+  }
+}
+.service-container .service-inner {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+}
+.service-container .service-inner .service-inner-col.left {
+  display: none;
+}
+.service-container .service-inner .service-inner-col .service-inner-title {
+  z-index: 11;
+  position: relative;
+}
+.service-container .service-inner .service-inner-col .service-inner-title h1 {
+  margin: 0;
+  font-weight: 400;
+}
+@media (min-width: 1800px) {
+  .service-container .service-inner .service-inner-col .service-inner-title h1 {
+    font-size: 28px;
+  }
+}
+.service-container .service-inner .service-inner-col .service-inner-links {
+  z-index: 11;
+  position: relative;
+  display: flex;
+}
+.service-container .service-inner .service-inner-col .service-inner-links .service-inner-link-item .service-inner-link-item-padding {
+  position: relative;
+}
+.service-container .service-inner .service-inner-col .service-inner-links .service-inner-link-item .service-inner-link-item-padding:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -30vh;
+  bottom: -30vh;
+  left: 0;
+  right: 0;
+}
+.service-container .service-inner .service-inner-col .service-inner-links .service-inner-link-item a {
+  padding: 12px 22px;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: transparent;
+  transition: color 0.3s, -webkit-text-stroke 0.3s;
+  -webkit-text-stroke: 1px #000;
+}
+.service-container .service-inner .service-inner-col .service-inner-links .service-inner-link-item a:hover {
+  color: black;
+  -webkit-text-stroke: 1px transparent;
+}
+.service-container .service-inner .service-inner-col .service-inner-links .service-inner-link-item a span {
+  line-height: 1.1;
+  font-weight: 700;
+  text-shadow: none;
+  font-size: 5.8vw;
+}
+.service-container .service-inner .service-inner-col .service-inner-links .service-inner-link-item:first-child a {
+  padding-left: 0;
+}
+.service-container .service-inner .service-inner-col .service-inner-links .service-inner-link-item:last-child a {
+  padding-right: 0;
+}
+.service-container .service-inner-footer {
+  padding-bottom: 80px;
+}
+.service-container .service-inner-footer .service-inner-footer-text p {
+  font-size: 2.8rem;
+  margin-top: -90px;
+  width: 70%;
+  line-height: 4.4rem;
+}
+
+/*! locomotive-scroll v4.1.3 | MIT License | https://github.com/locomotivemtl/locomotive-scroll */
+html.has-scroll-smooth {
+  overflow: hidden;
+}
+
+html.has-scroll-dragging {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.has-scroll-smooth body {
+  overflow: hidden;
+}
+
+.has-scroll-smooth [data-scroll-container] {
+  min-height: 100vh;
+}
+
+[data-scroll-direction=horizontal] [data-scroll-container] {
+  height: 100vh;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+[data-scroll-direction=horizontal] [data-scroll-section] {
+  display: inline-block;
+  vertical-align: top;
+  white-space: nowrap;
+  height: 100%;
+}
+
+.c-scrollbar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 11px;
+  height: 100%;
+  transform-origin: center right;
+  transition: transform 0.3s, opacity 0.3s;
+  opacity: 0;
+}
+
+.c-scrollbar:hover {
+  transform: scaleX(1.45);
+}
+
+.c-scrollbar:hover, .has-scroll-scrolling .c-scrollbar, .has-scroll-dragging .c-scrollbar {
+  opacity: 1;
+}
+
+[data-scroll-direction=horizontal] .c-scrollbar {
+  width: 100%;
+  height: 10px;
+  top: auto;
+  bottom: 0;
+  transform: scaleY(1);
+}
+
+[data-scroll-direction=horizontal] .c-scrollbar:hover {
+  transform: scaleY(1.3);
+}
+
+.c-scrollbar_thumb {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: black;
+  opacity: 0.5;
+  width: 7px;
+  border-radius: 10px;
+  margin: 2px;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.has-scroll-dragging .c-scrollbar_thumb {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+[data-scroll-direction=horizontal] .c-scrollbar_thumb {
+  right: auto;
+  bottom: 0;
+}
+
 *,
 *::after,
 *::before {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+  height: 100vh;
+  overflow: hidden;
   margin: 0;
   position: relative;
   z-index: -1;

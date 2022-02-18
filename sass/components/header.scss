@@ -29,14 +29,15 @@ header {
         }
         .header-inner-nav-menu {
           .header-inner-nav-link {
-            margin-right: 20px;
+            margin-right: 50px;
           }
           display: flex;
           align-items: center;
           .header-inner-nav-menu-hamburger {
             width: 24px;
-            position: relative;
-            top: 1px;
+            position: fixed;
+            top: 65px;
+            right: 60px;
             span {
               border: 1px solid black;
               position: relative;

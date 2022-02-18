@@ -31,6 +31,5 @@ sections.forEach(function(section, index){
 		end:"bottom 10px",
 		animation:gsap.to(".hero", {backgroundColor:navColors[index], immediateRender:false}),
 		toggleActions:"restart none none reverse"
-		
 	})
 })

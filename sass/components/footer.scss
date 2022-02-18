@@ -1,15 +1,17 @@
 footer {
-      /* place on the bottom */
   position: sticky;
   bottom: 0;
-  left: 0;
+  height: 50vh;
+  @media (min-width: 1600px) {
+    height: 30vh;
+  }
   width: 100%;
   z-index: -1;
 }
 
 .outro
 {    &-wrap {
-    height: 40vh;
+    height: 100%;
     width: 100%;
     background-color: #000;
     @media (min-width: 360px) {
@@ -57,13 +59,12 @@ footer {
     }
 
     &-content {
-        display: grid;
+        display: flex;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
-        justify-content: end;
-        align-content: end;
-        align-items: end;
-        height: 40vh;
+        justify-content: start;
+        align-items: center;
+        height: 100%;
     }
     &-address {
         display: flex;
@@ -80,6 +81,8 @@ footer {
         }}
     }
     &-grid-address {
+      margin-left: 20px;
+      margin-top: 40px;
     }
     &-social {
         display: flex;
@@ -100,6 +103,10 @@ a, a:link, a:visited, a:focus, a:hover, a:active{
 
 footer h2 {
     font-size: 5em;
+    @media (min-width: 1350px) {
+      font-size: 3.5em;
+      line-height: 1em;
+    }
     font-weight: normal;
     margin-bottom: 0.01em;
 
@@ -127,4 +134,10 @@ footer h2 {
       width: 0;
       background: white;
     }
+  }
+
+  .fixed {
+    position: fixed;
+    bottom: 0;
+    width: 100%
   }

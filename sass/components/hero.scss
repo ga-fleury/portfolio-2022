@@ -2,10 +2,26 @@
   display: flex;
   flex-direction: column;
 }
+.service-wrap {
+  display: flex;
+  flex-direction: column;
+}
 
 .hero {
   background: #fff;
   position: relative;
+
+  &-service-callout {
+    font-size: 1.2em;
+    
+  }
+
+  &-service-title{
+    font-size: 6em;
+    font-weight: 400;
+    line-height: 1em;
+    margin-top: 0.3em;
+  }
   .container {
     @media (min-width: 360px) {
       padding: 0 30px;
