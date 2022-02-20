@@ -18,4 +18,5 @@ scroller.on("scroll", (instance) => {
     customCursor.style.top = scrollPy;
     footer.style.transform = "translateY(" + scrollPy + ")";
     chat.style.top = instance.scroll.y + (height*.85) + "px";
+    chat.style.opacity = 0 + (instance.scroll.y * 0.005);
 });

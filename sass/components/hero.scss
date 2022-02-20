@@ -1,3 +1,5 @@
+@import 'rules';
+
 .content-wrap {
   display: flex;
   flex-direction: column;
@@ -24,25 +26,25 @@
   }
   .container {
     @media (min-width: 360px) {
-      padding: 0 30px;
+      padding: $p-xs
     }
     @media (min-width: 768px) {
-      padding: 0 100px;
+      padding: $p-s
     }
     @media (min-width: 1024px) {
-      padding: 0 120px;
+      padding: $p-m
     }
     @media (min-width: 1200px) {
-      padding: 0 150px;
+      padding: $p-l
     }
     @media (min-width: 1350px) {
-      padding: 0 180px;
+      padding: $p-xl
     }
     @media (min-width: 1600px) {
-      padding: 0 220px;
+      padding: $p-2xl
     }
     @media (min-width: 1800px) {
-      padding: 0 270px;
+      padding: $p-3xl
     }
 
     .hero-inner {
@@ -54,8 +56,6 @@
       .hero-inner-col {
         &.left {
           display: none;
-        }
-        &.right {
         }
         .hero-inner-title {
           z-index: 11;
